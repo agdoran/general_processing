@@ -28,9 +28,9 @@ open(OUT, ">$ARGV[2]") or die "Error opening the output file containing reads of
 
 while(my $a = <FASTQ>){
 	chomp $a;
-	my $b = <>;
-	my $c = <>;
-	my $d = <>;
+	my $b = <FASTQ>;
+	my $c = <FASTQ>;
+	my $d = <FASTQ>;
 
 	chomp $b;
 	chomp $c;
@@ -38,10 +38,11 @@ while(my $a = <FASTQ>){
 
 	my $id = $a;
 	$id =~ s/ .*$//;
+	$id =~ s/^\@//;
 
 	if(exists $read_ids{$a}){
 
-		print OUT "$a\n$b\n$c\n$d\n";
+		print OUT "$a\n$b\n$c\ny$d\n";
 
 	}
 
