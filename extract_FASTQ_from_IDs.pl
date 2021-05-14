@@ -4,6 +4,7 @@ use strict;
 my %read_ids;
 
 open(IDS, "$ARGV[0]") or die "Error opening the input list of read IDs\n";
+my $count = 0;
 
 while(my $ids = <IDS>){
 	chomp $ids;
@@ -17,10 +18,13 @@ while(my $ids = <IDS>){
 		$read_ids{$ids} = $ids;
 
 	}
+$count++;
 
 }
 
 close(IDS);
+
+print "Finished read $count IDs\n";
 
 open(FASTQ, "<$ARGV[1]") or die "Error opening the input FASTQ file\n";
 
