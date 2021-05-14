@@ -40,9 +40,9 @@ while(my $a = <FASTQ>){
 	$id =~ s/ .*$//;
 	$id =~ s/^\@//;
 
-	if(exists $read_ids{$a}){
+	if(exists $read_ids{$id}){
 
-		print OUT "$a\n$b\n$c\ny$d\n";
+		print OUT "$a\n$b\n$c\n$d\n";
 
 	}
 
