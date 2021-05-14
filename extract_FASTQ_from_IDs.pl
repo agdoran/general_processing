@@ -8,6 +8,7 @@ my $count = 0;
 
 while(my $ids = <IDS>){
 	chomp $ids;
+	next if($ids =~ m/^$/);
 
 	# basic error handling of duplicates in the input read ID list - WARNING only
 	if(exists $read_ids{$ids}){
