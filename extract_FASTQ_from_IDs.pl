@@ -31,6 +31,8 @@ open(FASTQ, "<$ARGV[1]") or die "Error opening the input FASTQ file\n";
 
 open(OUT, ">$ARGV[2]") or die "Error opening the output file containing reads of interest\n";
 
+open(EXC, ">$ARGV[3]") or die "Error opening the output file excluding reads of interest\n";
+
 while(my $a = <FASTQ>){
 	chomp $a;
 	my $b = <FASTQ>;
@@ -49,11 +51,16 @@ while(my $a = <FASTQ>){
 
 		print OUT "$a\n$b\n$c\n$d\n";
 
+	}else{
+		
+		print EXC "$a\n$b\n$c\n$d\n";
+	
 	}
 
 }
 
 close(OUT);
+close(EXC);
 close(FASTQ);
 
 
