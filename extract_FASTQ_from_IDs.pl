@@ -4,6 +4,8 @@ use strict;
 my %read_ids;
 
 open(IDS, "$ARGV[0]") or die "Error opening the input list of read IDs\n";
+# NOTE - your read IDs must exclude the leading @ character found in ONT output fastq files
+
 my $count = 0;
 
 while(my $ids = <IDS>){
